@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RS Portfolio - Design & Development</title>
+    <style>
+        :root {
+            --bg-color: #e5e2d9;
+            --text-main: #1a1a1a;
+            --accent-blue: #2b44ff;
+            --glass: rgba(255, 255, 255, 0.4);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+        }
+
+        /* الهيدر */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: fixed;
+            width: 90%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(229, 226, 217, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo { font-weight: bold; font-style: italic; font-size: 24px; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 20px;
+            font-size: 14px;
+            border: 1px solid #999;
+            padding: 6px 18px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { background: var(--text-main); color: white; }
+
+        /* الأقسام */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 120px 5% 60px;
+            position: relative;
+        }
+
+        h1, h2 { text-align: center; font-weight: bold; }
+        
+        /* القسم الأول (Home) */
+        .quote-box {
+            background-color: #edeae0;
+            padding: 40px;
+            width: 85%;
+            text-align: center;
+            font-size: 1.8rem;
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+
+        /* شبكة الصور */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .img-placeholder {
+            background: #d1cfc5;
+            border-radius: 12px;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* القسم الثاني (About Us / Logos) */
+        .logos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 1100px;
+            margin-top: 40px;
+        }
+
+        @media (min-width: 768px) { .logos-grid { grid-template-columns: repeat(4, 1fr); } }
+
+        .logo-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .logo-card .box { height: 180px; background: #f5f5f5; margin-bottom: 10px; border-radius: 5px; }
+
+        /* واجهة الدردشة (AI Chat) */
+        .ai-chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 2000;
+            overflow: hidden;
+            border: 1px solid var(--accent-blue);
+        }
+        .chat-header { background: var(--accent-blue); color: white; padding: 10px 15px; font-size: 14px; font-weight: bold; }
+        .chat-body { height: 200px; padding: 10px; font-size: 12px; overflow-y: auto; background: #fafafa; }
+        .chat-input { display: flex; border-top: 1px solid #eee; }
+        .chat-input input { flex: 1; border: none; padding: 10px; outline: none; }
+        .chat-input button { background: var(--accent-blue); color: white; border: none; padding: 10px; cursor: pointer; }
+
+        footer { padding: 50px 0; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); width: 100%; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">RS</div>
+        <nav class="nav-links">
+            <a href="#about">About us</a>
+            <a href="#home">Home</a>
+        </nav>
+    </header>
+
+    <section id="home" class="section">
+        <h1>Graphic design & web development</h1>
+        
+        <div class="quote-box">
+            We create a <span style="font-family: serif; font-style: italic;">story</span>, not only a <strong>DESIGN</strong>
+        </div>
+
+        <div class="work-grid">
+            <div class="img-placeholder">
+                <img src="img1.PNG" alt="Work 1"> </div>
+            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                <h2 style="font-size: 2rem; margin-bottom: 10px;">some of our work</h2>
+                <p style="max-width: 280px; color: #666; font-size: 0.9rem;">
+                    simple, soft design for a full experience of a high quality hand, body cream
+                </p>
+                <div class="img-placeholder" style="width: 100%; margin-top: 20px; min-height: 250px;">
+                    <img src="img2.png" alt="Work 2"> </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section" style="background-color: #f0f0f0;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 40px;">experience some of our logos</h2>
+        
+        <div class="logos-grid">
+            <div class="logo-card">
+                <div class="box"><img src="logo1.jpg" style="width:100%; height:100%; object-fit:contain;"></div>
+                <p>College of Art</p>
+            </div>
+            <div class="logo-card">
+                <div class="box"><img src="logo2.jpg" style="width:100%; height:100%; object-fit:contain;"></div>
+                <p>Cozy Corner</p>
+            </div>
+            <div class="logo-card">
+                <div class="box"><img src="logo3.jpg" style="width:100%; height:100%; object-fit:contain;"></div>
+                <p>Apex Systems</p>
+            </div>
+            <div class="logo-card">
+                <div class="box"><img src="logo4.jpg" style="width:100%; height:100%; object-fit:contain;"></div>
+                <p>Lovely Cake</p>
+            </div>
+        </div>
+
+        <div class="work-grid" style="margin-top: 80px;">
+            <div style="text-align: left;">
+                <h3 style="font-size: 1.8rem; line-height: 1.4;">realistic, high resolution design gives more trust</h3>
+            </div>
+            <div style="display: flex; gap: 20px;">
+                <div class="img-placeholder" style="flex: 1; min-height: 300px;">
+                    <img src="extra1.PNG" alt="Extra 1"> </div>
+                <div class="img-placeholder" style="flex: 1; min-height: 300px;">
+                    <img src="extra2.jpg" alt="Extra 2"> </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="ai-chat-container">
+        <div class="chat-header">RS AI Assistant</div>
+        <div class="chat-body" id="chatWindow">
+            <p style="background: #eef; padding: 8px; border-radius: 8px; margin-bottom: 5px;">مرحباً! كيف يمكنني مساعدتك في مشروعك القادم؟</p>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="اسأل الذكاء الاصطناعي...">
+            <button onclick="sendMessage()">إرسال</button>
+        </div>
+    </div>
+
+    <footer>
+        <h4 style="margin-bottom: 20px;">our contacts</h4>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <div>📧 RS.1@gmail.com</div>
+            <div>📞 +966 55 192 2874</div>
+        </div>
+    </footer>
+<script>
+    async function sendMessage() {
+        const input = document.getElementById('userInput');
+        const chatWindow = document.getElementById('chatWindow');
+        const message = input.value.trim();
+
+        if (!message) return;
+
+        // 1. إظهار رسالتك في واجهة الشات
+        const userDiv = document.createElement('p');
+        userDiv.style.cssText = "text-align:right; background:#dcf8c6; padding:8px; border-radius:8px; margin-bottom:5px; margin-left:20px; color:#000;";
+        userDiv.textContent = message;
+        chatWindow.appendChild(userDiv);
+        
+        input.value = ''; // مسح خانة الكتابة
+        chatWindow.scrollTop = chatWindow.scrollHeight; // النزول لآخر المحادثة
+
+        try {
+            // 1. استبدلي الرابط بالرابط اللي نسختيه من Production URL في n8n
+            const response = await fetch('https://shatha4.app.n8n.cloud/webhook/9f99fe7c-23f8-465c-be6a-7d61c006b0cd', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chatInput: message })
+            });
+
+            const data = await response.json();
+            console.log("الرد الكامل من n8n:", data); 
+
+            // 2. هذا السطر هو الأهم: يبحث عن الرد سواء كان اسمه text أو output
+            const finalReply = data.text || data.output || (data[0] && data[0].text) || "وصلني رد لكن بصيغة غير معروفة";
+
+            // 3. عرض الرد في فقاعة الشات
+            const aiDiv = document.createElement('p');
+            aiDiv.style.cssText = "background: #eef; padding: 10px; border-radius: 10px; margin-bottom: 10px; margin-right: 40px; color: #333; border: 1px solid #ddd;";
+            aiDiv.textContent = finalReply; 
+            chatWindow.appendChild(aiDiv);
+            
+            // سحب الشاشة لأسفل لمشاهدة الرد الجديد
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+
+        } catch (error) {
+            console.error("Error:", error);
+            const errorDiv = document.createElement('p');
+            errorDiv.style.color = "red";
+            errorDiv.textContent = "عذراً، حدث خطأ في الاتصال.";
+            chatWindow.appendChild(errorDiv);
+        }
+       /* try {
+            // 2. إرسال الرسالة إلى n8n (ضعي رابط الـ Webhook الخاص بك هنا)
+          const response = await fetch('https://shatha4.app.n8n.cloud/webhook/9f99fe7c-23f8-465c-be6a-7d61c006b0cd', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chatInput: message })
+            });
+
+            const data = await response.json();
+            
+            // 3. إظهار رد الذكاء الاصطناعي
+            const aiDiv = document.createElement('p');
+            aiDiv.style.cssText = "background: #eef; padding: 8px; border-radius: 8px; margin-bottom: 5px; margin-right:20px; color:#000;";
+            aiDiv.textContent = data.output || "وصلت الرسالة لـ n8n بنجاح!"; 
+            chatWindow.appendChild(aiDiv);
+            
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+
+        } catch (error) {
+            console.error('Error:', error);
+            const errorDiv = document.createElement('p');
+            errorDiv.style.color = "red";
+            errorDiv.textContent = "عذراً، تأكدي من تشغيل n8n!";
+            chatWindow.appendChild(errorDiv);
+        }*/
+    }
+
+    // ربط زر Enter بالكيبورد للإرسال
+    document.getElementById('userInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') sendMessage();
+    });
+
+    // ربط زر الإرسال الموجود في التصميم
+    // تأكدي أن الزر في الكود الأصلي لديه خاصية: onclick="sendMessage()"
+</script>
+</body>
+</html>
